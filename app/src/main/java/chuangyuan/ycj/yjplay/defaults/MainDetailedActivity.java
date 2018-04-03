@@ -9,20 +9,20 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
 
 import java.util.Arrays;
-
 import chuangyuan.ycj.videolibrary.listener.VideoInfoListener;
 import chuangyuan.ycj.videolibrary.listener.VideoWindowListener;
 import chuangyuan.ycj.videolibrary.video.ExoUserPlayer;
-import chuangyuan.ycj.videolibrary.widget.BelowView;
+import chuangyuan.ycj.videolibrary.video.GestureVideoPlayer;
+import chuangyuan.ycj.videolibrary.video.ManualPlayer;
 import chuangyuan.ycj.videolibrary.widget.VideoPlayerView;
 import chuangyuan.ycj.yjplay.R;
 import chuangyuan.ycj.yjplay.data.DataSource;
-
 public class MainDetailedActivity extends Activity {
 
-    private ExoUserPlayer exoPlayerManager;
+    private ManualPlayer exoPlayerManager;
     private VideoPlayerView videoPlayerView;
     private static final String TAG = "OfficeDetailedActivity";
     String[] test;
@@ -32,8 +32,8 @@ public class MainDetailedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout);
-        videoPlayerView = (VideoPlayerView) findViewById(R.id.exo_play_context_id);
-        exoPlayerManager = new ExoUserPlayer(this, videoPlayerView, new DataSource(this));
+        videoPlayerView = findViewById(R.id.exo_play_context_id);
+        exoPlayerManager = new ManualPlayer(this, videoPlayerView, new DataSource(this));
         //设置视频标题
         exoPlayerManager.setTitle("视频标题");
         //设置水印图
@@ -47,12 +47,20 @@ public class MainDetailedActivity extends Activity {
         //设置开始播放进度
         // exoPlayerManager.setPosition(1000);
         // exoPlayerManager.setPlayUri(getString(R.string.uri_test_3),getString(R.string.uri_test_h));
+         //    String tes="/storage/emulated/0/DCIM/Camera/VID_20180215_131926.mp4";
         // exoPlayerManager.setPlayUri(Environment.getExternalStorageDirectory().getAbsolutePath()+"/VID_20170925_154925.mp4");
+      //  test = new String[]{"/storage/emulated/0/DCIM/Camera/VID_20180215_131816.mp4","/storage/emulated/0/DCIM/Camera/VID_20180215_131816.mp4","/storage/emulated/0/DCIM/Camera/VID_20180215_131816.mp4"};
         test = new String[]{getString(R.string.uri_test_9), getString(R.string.uri_test_7), getString(R.string.uri_test_8)};
-         String[] name = {"超清", "高清", "标清"};
-//        //开启线路设置
-        exoPlayerManager.setShowVideoSwitch(true);
-        exoPlayerManager.setPlaySwitchUri(0,0,getString(R.string.uri_test_11), Arrays.asList(test),Arrays.asList(name));
+        String[] name = {"超清", "高清", "标清"};
+        //开启线路设置
+         exoPlayerManager.setShowVideoSwitch(true);
+        //exoPlayerManager.setPlaySwitchUri(0,test,name);
+       // exoPlayerManager.setPlaySwitchUri(0, 0, getString(R.string.uri_test_11), Arrays.asList(test), Arrays.asList(name));
+       exoPlayerManager.setPlayUri("rtmp://live.hkstv.hk.lxdns.com/live/hks");
+       // exoPlayerManager.setPlaybackParameters(0.5f,0.5f);
+        exoPlayerManager.startPlayer();
+      //  exoPlayerManager.startPlayer();
+     //  exoPlayerManager.setPlayUri("http://live.aikan.miguvideo.com/wd_r2/cctv/cctv1hd/1200/01.m3u8");
         //exoPlayerManager.setPlayUri(Environment.getExternalStorageDirectory().getAbsolutePath()+"/test.mp4");
         //开始启动播放视频
         //exoPlayerManager.startPlayer();
@@ -91,9 +99,10 @@ public class MainDetailedActivity extends Activity {
                 .fitCenter()
                 .placeholder(R.mipmap.test)
                 .into(videoPlayerView.getPreviewImage());
-        exoPlayerManager.setVideoInfoListener(new VideoInfoListener() {
+        exoPlayerManager.addVideoInfoListener(new VideoInfoListener() {
+
             @Override
-            public void onPlayStart() {
+            public void onPlayStart(long currPosition) {
 
             }
 
@@ -109,7 +118,7 @@ public class MainDetailedActivity extends Activity {
 
             @Override
             public void onPlayEnd() {
-                Toast.makeText(getApplication(), "asd", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplication(), "asd", Toast.LENGTH_SHORT).show();
             }
 
 
@@ -139,13 +148,14 @@ public class MainDetailedActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        exoPlayerManager.onDestroy();
 
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+      //  exoPlayerManager.onConfigurationChanged(newConfig);//横竖屏切换
         super.onConfigurationChanged(newConfig);
-        exoPlayerManager.onConfigurationChanged(newConfig);//横竖屏切换
     }
 
     @Override

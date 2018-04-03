@@ -12,13 +12,14 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 
 import chuangyuan.ycj.videolibrary.R;
 import chuangyuan.ycj.videolibrary.utils.ParamsCreator;
 
 
 /**
+ * The type Exo video anim.
+ *
  * @author yangc
  */
 public class ExoVideoAnim extends View {
@@ -27,18 +28,35 @@ public class ExoVideoAnim extends View {
     private int[] colors = new int[]{0xFFFFC600, 0xFF14C878, 0xFF02D9FF};
     private Paint paint = new Paint();
     private RectF oval = new RectF();
-    /**圆半径***/
+    /**
+     * 圆半径
+     ***/
     private int circleRadius;
-    /**圆间距**/
+    /**
+     * 圆间距
+     **/
     private int circleSpacing;
-    /**增量**/
+    /**
+     * 增量
+     **/
     private int increment = 2;
 
 
+    /**
+     * Instantiates a new Exo video anim.
+     *
+     * @param context the context
+     */
     public ExoVideoAnim(@NonNull Context context) {
         super(context);
     }
 
+    /**
+     * Instantiates a new Exo video anim.
+     *
+     * @param context the context
+     * @param attrs   the attrs
+     */
     public ExoVideoAnim(@NonNull Context context, AttributeSet attrs) {
         super(context, attrs);
         ParamsCreator paramsCreator = new ParamsCreator(this.getContext());
@@ -264,13 +282,21 @@ public class ExoVideoAnim extends View {
      * 内部类
      */
     private class CircleWrapper {
-        /**圆的直径**/
+        /**
+         * 圆的直径
+         **/
         private int diameter;
-        /**初始直径**/
+        /**
+         * 初始直径
+         **/
         private int initDiameter;
-        /**动态直径**/
+        /**
+         * 动态直径
+         **/
         private int dynamicDiameter;
-        /**方向，即增加还是减少 1:增加 -1为减少*/
+        /**
+         * 方向，即增加还是减少 1:增加 -1为减少
+         */
         private int orientation;
     }
 }

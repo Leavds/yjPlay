@@ -3,17 +3,11 @@ package chuangyuan.ycj.yjplay.offline;
 import android.content.Context;
 
 import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.FileDataSourceFactory;
-import com.google.android.exoplayer2.upstream.cache.CacheDataSinkFactory;
 import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
-import com.google.android.exoplayer2.upstream.cache.CacheDataSourceFactory;
-import com.google.android.exoplayer2.upstream.cache.LeastRecentlyUsedCacheEvictor;
-import com.google.android.exoplayer2.upstream.cache.SimpleCache;
+import com.google.android.exoplayer2.upstream.cache.CacheUtil;
 
-import java.io.File;
 
 import chuangyuan.ycj.videolibrary.factory.DefaultCacheDataSourceFactory;
-import chuangyuan.ycj.videolibrary.factory.JDefaultDataSourceFactory;
 import chuangyuan.ycj.videolibrary.listener.DataSourceListener;
 
 

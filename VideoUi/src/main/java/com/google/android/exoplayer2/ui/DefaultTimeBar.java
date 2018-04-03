@@ -35,9 +35,11 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
+
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -331,7 +333,7 @@ public class DefaultTimeBar extends View implements TimeBar {
 
   @Override
   public boolean isOpenSeek() {
-    return false;
+    return true;
   }
 
   @Override

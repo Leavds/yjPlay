@@ -1,11 +1,64 @@
  ## 更新日志
+  #### 2.1.50
+   * 1.升级内核版本[#2.7.2](https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md#272)
+   * 2.优化自定义封面布局让播放封面随心配置。
+   * 3.拆分VideoPlayerView和BaseView减少代码量，更容易管理。
+   * 4.修复[2.1.41版本]自定义全屏按钮没有效果。
+   * 5.增加弹幕布局拓展。
+   * 5.优化列表保存视频进度问题.
+   * 6.其他优化。 
+  #### 2.1.41
+   * 1.升级内核版本[#2.7.1](https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md#271)
+   * 2.优化自定义封面布局让播放封面随心配置。
+   * 3.增加点击播放时控制是否显示封面图还是隐藏。
+   * 4.控制布局上下布局显示隐藏动画完善。
+   * 5.其他优化。
+  #### 2.1.37
+  * 1.修复[setPlaybackParameters（f，f） 没有效果#82](https://github.com/yangchaojiang/yjPlay/issues/82)  
+  #### 2.1.35
+   * 1.移除简单加密和aes加密处理。改用离线加载类统一处理。
+   * 2.完善离线下载类，移除内部多余类。
+   * 3.修复手势滑动左右问题[#78](https://github.com/yangchaojiang/yjPlay/issues/78)。
+   * 4.修复手势滑动进度还原问题[#76](https://github.com/yangchaojiang/yjPlay/issues/76)。
+   * 4.修复手势滑动进度还原问题[#76](https://github.com/yangchaojiang/yjPlay/issues/76)。
+   * 5.修复d第一次加载不出现加载效果[#79](https://github.com/yangchaojiang/yjPlay/issues/76)。
+  #### 2.1.3
+   * 1.升级内核版本[#2.7.0](https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md#270)
+   * 2.增加视频快进快退控制处理。
+   * 3.依赖v7 [25.3.1]版本升级到[26.1.0]版本。
+   * 4.其他优化。
+  ### 1.9.96
+   * 1.列表点击按钮无法播放bug[#74](https://github.com/yangchaojiang/yjPlay/issues/74)。
+  ### 1.9.94
+   * 1.完善切换横屏和竖屏，还原状态。
+   * 2.增加列表播放没有完成记录进度保存和复用问题。
+   * 3.其他优化。
+ ### 1.9.93
+   * 1.修复播放源为DASH类型返回错误[#62](https://github.com/yangchaojiang/yjPlay/issues/62)。
+  
+ ### 1.9.91
+   * 1.增加列表到详情播放完美过滤。无需二次加载[#58](https://github.com/yangchaojiang/yjPlay/issues/58)。
+   * 2.多线路选择增加高亮显示[#61](https://github.com/yangchaojiang/yjPlay/issues/61)。
+   * 3.优化屏全屏处理。
+   * 4.升级内核版本[#2.6.1](https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md#261)
+   * 5.修复bug[#31](https://github.com/yangchaojiang/yjPlay/issues/31)
+   * 6.改进mediaSource实例化方式。
+ ### 1.9.83
+   * 1.新增加广告和多分辨率同时支持[#35](https://github.com/yangchaojiang/yjPlay/issues/35)。
+   * 2.增加自定义预览布局设置，更容易实现自定义视频封面图UI样式。
+   * 3.修改对视频链接类型判断bug[#42](https://github.com/yangchaojiang/yjPlay/issues/42)。
+   * 4.优化广告可能出现没有切换视频下拖拽进度条快进，出现多次回调处理。
+   * 5.修复播放完成后，可能按钮没有显示问题。
+   * 6.优化视频图封面图代码控制，更简介处理。
+   * 7.其他代码修复。 
+   * 8.demo增加英语语言。
  ### 1.9.8
    * 1.增加离线下载助手(支持加密处理)。
    * 2.增加锁屏功能和控住布局显示和隐藏动画效果。
    * 3.升级内核版本[2.6.0](https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md#260)
    * 4.增加全屏和返回按钮图标自定义。
    * 5.修复缓存问题实现真正实现离线缓存播放。
-   * 6.修复bug[31](https://github.com/yangchaojiang/yjPlay/issues/31)
+   * 6.修复bug[#31](https://github.com/yangchaojiang/yjPlay/issues/31)
    * 7.其他逻辑优化和代码分离。
    * 8.优化使用说明。
  ### 1.9.5

@@ -6,13 +6,14 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+
     <chuangyuan.ycj.videolibrary.widget.VideoPlayerView
         android:id="@+id/exo_play_context_id"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@android:color/transparent"
         app:auto_show="true"
-        app:controller_layout_id="@layout/simple_exo_playback_top_view"
+        app:controller_layout_id="@layout/custom_exo_playback_top_view"
         app:player_layout_id="@layout/simple_exo_view"
         app:player_replay_layout_id="@layout/custom_play_replay"
         app:player_error_layout_id="@layout/custom_play_error"
@@ -23,16 +24,14 @@
         app:player_gesture_progress_layout_id="@layout/custom_gesture_pro"
         app:player_fullscreen_image_selector="@drawable/custom_full_selector"
         app:player_back_image="@drawable/ic_arrow_back_black_24dp"
-        app:fastforward_increment="0"
-        app:paddingEnd="0dp"
-        app:paddingStart="0dp"
+        app:player_preview_layout_id="@layout/exo_default_preview_layout"
         app:resize_mode="fit"
         app:rewind_increment="0"
         app:show_timeout="3000"
         app:surface_type="texture_view"
         app:use_artwork="true"
         app:user_watermark="@mipmap/watermark_big"
-        app:use_controller="true" />
+          />
 
 
 </LinearLayout>
